@@ -1,0 +1,44 @@
+# Tender Evaluation System Configuration
+
+# Ollama settings
+ollama:
+  base_url: "http://localhost:11434"
+  embedding_model: "nomic-embed-text"
+  llm_model: "tinydolphin:latest"
+
+# Vector database settings
+vector_db:
+  type: "faiss"  # or "chroma"
+  persist_directory: "./data/vectorstore"
+
+# OCR settings
+ocr:
+  enabled: true
+  language: "eng"
+
+# File paths
+paths:
+  org_documents: "./data/org_documents"
+  applicant_documents: "./data/applicant_documents"
+  output_reports: "./data/reports"
+
+# Processing settings
+processing:
+  chunk_size: 1000
+  chunk_overlap: 200
+  top_k_results: 10
+
+# Evaluation settings
+evaluation:
+  max_applicants: 10
+  min_score_threshold: 70
+  scoring_weights:
+    technical_compliance: 0.4
+    budget_compliance: 0.3
+    timeline_compliance: 0.2
+    certification_compliance: 0.1
+
+# Report settings
+report:
+  template_path: "./templates/report_template.tex"
+  output_path: "./data/reports"
