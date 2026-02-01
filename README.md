@@ -62,6 +62,8 @@ The system follows these steps:
 5. **LLM Evaluation**: Detailed analysis and scoring using language models
 6. **Report Generation**: Create professional evaluation reports
 
+![System Architecture Diagram](media/Diagram.png)
+
 ## Project Structure
 
 ```
