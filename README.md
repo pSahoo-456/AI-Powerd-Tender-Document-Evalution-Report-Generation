@@ -11,11 +11,7 @@ This system takes organization requirement documents and candidate proposals, th
 - Apply configurable business rules for filtering
 - Generate detailed evaluation reports
 
-## Demo
 
-Check out the system in action:
-
-[View Demo Video](media/Screen Recording 2026-02-01 184059.mp4)
 
 ## Tech Stack
 
