@@ -65,19 +65,19 @@ Manual procurement evaluation is slow, prone to human error, and resource-heavy.
 ## 📷 System Screenshots
 
 ### UI Interface
-![UI Interface](media/UI Screenshot.png)
+![UI Interface](media/UI_Screenshot.png)
 
 ### Generated Report Comparison Table
-![Generated Report Comparison Table](media/Generated report Comparison Table between Firm.png)
+![Generated Report Comparison Table](media/Generated_report_Comparison_Table_between_Firm.png)
 
 ### Generated Report First Page
-![Generated Report First Page](media/Generated Report First page.png)
+![Generated Report First Page](media/Generated_Report_First_page.png)
 
 ### Generated Report Content Page
-![Generated Report Content Page](media/Generated ReportContent Page.png)
+![Generated Report Content Page](media/Generated_Report_Content_Page.png)
 
 ### Detailed Results View
-![Detailed Results View](media/Detailed Result.png)
+![Detailed Results View](media/Detailed_Result.png)
 
 ## 📋 Usage
 
