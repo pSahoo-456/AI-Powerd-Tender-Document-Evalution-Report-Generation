@@ -1,115 +1,120 @@
-# AI-Powered Tender Document Evaluation & Report Generation
+# AI Tender RAG & Reporting System
 
-A Python-based system I built to automate the evaluation of tender proposals using AI and semantic analysis. After spending countless hours manually reviewing tender documents, I decided to build a solution that could objectively assess proposals against organizational requirements.
+## Overview
 
-## What It Does
+The AI Tender RAG & Reporting System is an end-to-end pipeline designed to automate the grueling process of technical tender evaluation. By leveraging Retrieval-Augmented Generation (RAG) and local Large Language Models (LLMs), it transforms unstructured vendor proposals into structured, objective, and professional LaTeX-formatted TEC reports.
 
-This system takes organization requirement documents and candidate proposals, then uses AI to:
-- Extract and process text from PDFs
-- Generate semantic embeddings to understand document content
-- Match proposals against requirements using similarity analysis
-- Apply configurable business rules for filtering
-- Generate detailed evaluation reports
+## 💡 The Problem
+
+Manual procurement evaluation is slow, prone to human error, and resource-heavy. Organizations often deal with hundreds of pages of technical specs where keyword matching fails to capture the true intent of a proposal.
+
+## ✨ Key Features
+
+- **Dual-Path Ingestion**: High-fidelity text extraction via pdfplumber with automatic Tesseract OCR fallback for scanned documents
+- **Semantic Intelligence**: Utilizes nomic-embed-text and FAISS vector storage for context-aware requirement matching
+- **Local & Secure**: Powered by Ollama (Llama 3/Mistral), enabling 100% offline execution
+- **Automated LaTeX Reporting**: Generates committee-ready reports with comparison matrices and AI-justified reasoning
 
 
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - **Python 3.8+**: Core implementation
-- **Ollama**: Running local LLMs and embedding models (nomic-embed-text, llama3.1)
-- **Streamlit**: Web interface
+- **Ollama**: Local LLM and embedding models (nomic-embed-text, llama3.1)
 - **FAISS**: Vector similarity search
 - **LaTeX**: Professional report generation
 - **pdfplumber/pymupdf**: PDF processing
+- **Streamlit**: Web interface (optional)
 
-## Setup
+## 🚀 Setup
+
+### Prerequisites
+- Python 3.8+
+- Ollama (https://ollama.com/)
+- LaTeX distribution (MiKTeX/TeX Live/MacTeX)
+
+### Installation
 
 1. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-2. Install and run Ollama:
-   - Download from https://ollama.com/
-   - Pull required models:
+2. Install and configure Ollama:
    ```bash
    ollama pull nomic-embed-text
    ollama pull llama3.1
    ```
 
-3. Install LaTeX for PDF report generation:
+3. Install LaTeX for PDF generation:
    - Windows: Install MiKTeX
    - Linux: `sudo apt-get install texlive-full`
    - Mac: Install MacTeX
 
-4. Run the application:
-   ```bash
-   streamlit run run_professional_app.py
-   ```
-
-## How It Works
-
-The system follows these steps:
+## 🏗️ How It Works
 
 1. **Document Ingestion**: Load organization requirements and candidate proposals
-2. **Embedding Generation**: Convert documents to semantic vectors
-3. **Similarity Matching**: Find relevant sections between requirements and proposals
+2. **Embedding Generation**: Convert documents to semantic vectors using nomic-embed-text
+3. **Similarity Matching**: Find relevant sections using FAISS vector search
 4. **Rule-Based Filtering**: Apply configurable evaluation criteria
-5. **LLM Evaluation**: Detailed analysis and scoring using language models
-6. **Report Generation**: Create professional evaluation reports
+5. **LLM Evaluation**: Detailed analysis and scoring using local LLMs
+6. **Report Generation**: Create professional LaTeX evaluation reports
 
 ![System Architecture Diagram](media/Diagram.png)
 
-## Project Structure
+## 📷 System Screenshots
+
+### UI Interface
+![UI Interface](media/UI Screenshot.png)
+
+### Generated Report Comparison Table
+![Generated Report Comparison Table](media/Generated report Comparison Table between Firm.png)
+
+### Generated Report First Page
+![Generated Report First Page](media/Generated Report First page.png)
+
+### Generated Report Content Page
+![Generated Report Content Page](media/Generated ReportContent Page.png)
+
+### Detailed Results View
+![Detailed Results View](media/Detailed Result.png)
+
+## 📋 Usage
+
+### CLI Mode
+```bash
+python main.py --mode cli
+```
+
+### Configuration
+Edit `config/config.yaml` to customize:
+- Ollama settings and model selection
+- Processing parameters
+- Evaluation thresholds
+- OCR settings
+
+Business rules can be modified in `config/tender_rules.yaml`.
+
+## 📁 Project Structure
 
 ```
 ├── config/                 # Configuration files
-│   ├── config.yaml
-│   └── tender_rules.yaml
 ├── src/                    # Source modules
 │   ├── embeddings/         # Embedding generation
 │   ├── evaluation/         # LLM evaluation
 │   ├── filtering/          # Rule-based filtering
 │   ├── ingestion/          # Document loading
-│   ├── interfaces/         # User interfaces
 │   ├── ocr/                # OCR processing
 │   ├── parsing/            # Text processing
 │   ├── reporting/          # Report generation
 │   ├── search/             # Similarity search
 │   ├── utils/              # Utilities
 │   └── vector_db/          # Vector storage
-├── templates/              # Report templates
-├── main.py                 # CLI entry point
-└── run_professional_app.py # Web app entry point
+├── templates/              # LaTeX report templates
+└── media/                  # Documentation assets
 ```
 
-## Configuration
-
-Edit `config/config.yaml` to adjust:
-- Ollama settings (API URL, models)
-- Processing parameters (chunk size, max proposals)
-- Evaluation thresholds
-
-Business rules can be modified in `config/tender_rules.yaml`.
-
-## Usage
-
-The system offers two interfaces:
-
-1. **Web Interface** (recommended):
-   ```bash
-   streamlit run run_professional_app.py
-   ```
-
-2. **CLI Mode**:
-   ```bash
-   python main.py --mode cli
-   ```
-
-## Motivation
-
-This project came from real frustration with the manual, time-consuming process of evaluating tender proposals. Organizations often receive dozens of proposals that need to be evaluated against complex requirements. This system helps ensure consistent, objective evaluation while saving valuable time.
-
-## License
+## 📄 License
 
 MIT © Prakash Sahoo
+
